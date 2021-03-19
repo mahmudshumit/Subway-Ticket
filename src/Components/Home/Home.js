@@ -1,41 +1,34 @@
-import React from 'react';
-import { useHistory } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+
+
+
+import ticketData from '../fakeData/data'
+import Ticket from '../Ticket/Ticket';
 
 
 const Home = () => {
-    const history = useHistory();
+  const [tickets,setTickets] =useState([]);
+  useEffect(()=>{
+setTickets(ticketData)
+  },[])
+    // const history = useHistory();
 
-    function handleClick() {
-      history.push("/destination");
-    }
+    // function handleClick() {
+    //   history.push("/destination");
+    // }
   
     return (
-        <div class="row mt-5 pt-5 ml-5">
-            <div class="col-sm-3">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Subway Online Ticket </h5> 
-              <button onClick={handleClick} class="btn btn-primary">Buy Now</button>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Subway Online Ticket </h5> 
-              <button onClick={handleClick} class="btn btn-primary">Buy Now</button>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Subway Online Ticket </h5> 
-              <button onClick={handleClick} class="btn btn-primary">Buy Now</button>
-            </div>
-          </div>
-        </div>
-      </div>
+
+       <div className="row">
+
+       {
+          tickets.map(ticket =><Ticket ticket={ticket}></Ticket>)
+       }
+   </div>
+
+         
+        
+
     );
 };
 
