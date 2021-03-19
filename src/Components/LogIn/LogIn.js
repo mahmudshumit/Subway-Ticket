@@ -80,7 +80,7 @@ const LogIn = () => {
         
           <div style={{textAlign: 'center'}}>
             <h1>This is logIn</h1>
-            <button onClick={handleGoggleSignIn} variant="warning">Goggle Sign In</button>
+            <button onClick={handleGoggleSignIn} variant="warning">Google Sign In</button>
             <br/>
             <button onClick={handleFacebookSignIn} variant="warning">Fb Sign  In</button>
 

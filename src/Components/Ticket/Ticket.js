@@ -23,7 +23,7 @@ import image from '../../images/Group 33143.png';
                          Ticket Price:  {price} </Card.Title>
                        
                     <Card.Text>
-                        <Button onClick={() =>handleClick(name)} variant="warning">Buy Now</Button>
+                        <Button onClick={() =>handleClick(id)} variant="warning">Buy Now</Button>
                     </Card.Text>
                     {/* <Card.Text> <Link to ={`/destination/${name}`}>Show </Link> </Card.Text> */}
                    
