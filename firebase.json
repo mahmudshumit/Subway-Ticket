@@ -1,4 +1,4 @@
-firebase.json file tate ata den {
+ {
   "hosting": {
   "public": "build",
   "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
