@@ -7,9 +7,9 @@ import Ticket from '../Ticket/Ticket';
 import ticketData from '../fakeData/data';
 
 
-const TicketDetail = (props) => {
+const TicketDetail = () => {
 
-  const handleClick = props.handleClick;
+  
   const { ticketId } = useParams();
 
 
@@ -33,7 +33,7 @@ const TicketDetail = (props) => {
           <Form.Control type="name" placeholder="Enter Your Destination" />
         </Form.Group>
 
-        <Button onClick={() => handleClick(props.ticket)} variant="primary" type="submit">
+        <Button  variant="primary" type="submit">
           Search
   </Button>
       </Form>
