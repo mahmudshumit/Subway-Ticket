@@ -7,22 +7,39 @@ import Ticket from '../Ticket/Ticket';
 import ticketData from '../fakeData/data';
 
 
-const TicketDetail = () => {
-  const {ticketId} = useParams();
-  const  [ticket,setTicket]  = useState({});
-  // useEffect(() => {
-  //   setTicket(ticketData/`${ticketId}`)
-  // },[]);
-  // const ticketData = 
-    const tickets = ticketData.find(ticket =>ticket.id===ticketId);
+const TicketDetail = (props) => {
+
+  const handleClick = props.handleClick;
+  const { ticketId } = useParams();
+
+
+  const ticket = ticketData.find(ticket => ticket.id == ticketId);
   return (
+
     <div>
-        <h1>Ticket Type : {ticketId}</h1>
-        <Ticket ticket={ticket}></Ticket>
-         
-      
-        
+
+      <h1>Ticket Type : {ticketId}</h1>
+      <Ticket showButton={false} ticket={ticket}></Ticket>
+
+      <Form>
+        <Form.Group controlId="formBasicEmail">
+          <Form.Label>Pick From</Form.Label>
+          <Form.Control type="name" placeholder="Enter Your Destination" />
+
+        </Form.Group>
+
+        <Form.Group controlId="formBasicPassword">
+          <Form.Label>Pick To</Form.Label>
+          <Form.Control type="name" placeholder="Enter Your Destination" />
+        </Form.Group>
+
+        <Button onClick={() => handleClick(props.ticket)} variant="primary" type="submit">
+          Search
+  </Button>
+      </Form>
     </div>
+
+
   );
 };
 

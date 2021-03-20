@@ -9,7 +9,7 @@ import {
   Link
 } from "react-router-dom";
 import Home from './Components/Home/Home';
-import Destination from './Components/Destination/Destination';
+
 import LogIn from './Components/LogIn/LogIn';
 import { createContext, useState } from 'react';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
@@ -17,47 +17,32 @@ import TicketDetail from './Components/TicketDetail/TicketDetail';
 
 export const UserContext = createContext();
 function App() {
-  const [loggedInUser,setLoggedInUser] = useState({})
+  const [loggedInUser, setLoggedInUser] = useState({})
   return (
-    <UserContext.Provider value={[loggedInUser,setLoggedInUser]}>
-    {/* <h1>Name {loggedInUser.name}</h1> */}
-   <Router>
-      <Header></Header>
-    
-      <Switch>
-      <Route exact path="/">
-        <Home></Home>
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+      <h3>Name : {loggedInUser.name}</h3>
+      <Router>
+        <Header></Header>
 
-        </Route>
-       
-      <Route path="/home">
-          
-          <Home></Home>
+        <Switch>
+          <Route path="/home">
+            <Home></Home>
           </Route>
-          <Route path="/destination">
-
-            <Destination></Destination>
-
+          <Route path="/login">
+            <LogIn></LogIn>
           </Route>
           <PrivateRoute path="/ticket/:ticketId">
-          
-          <TicketDetail></TicketDetail>
-          </PrivateRoute>
 
-          <Route path="/login">
-          <LogIn></LogIn>
+            <TicketDetail></TicketDetail>
+          </PrivateRoute>
+          <Route exact path="/">
+            <Home></Home>
+
           </Route>
 
-
-      
-      
-       
-
-      </Switch>
-
-
-    </Router>
-      </UserContext.Provider>
+        </Switch>
+      </Router>
+    </UserContext.Provider>
 
   );
 }
